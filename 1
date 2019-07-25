@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог</title>
+</head>
+<body class="c" style="width: 100%; display: flex; align-content: center; justify-content: center;">
+<div>
+    <img src="../../../PycharmProjects/untitled54/30032088b.jpg" height="200" width="200"/>
+    <h2>Samsung S7</h2>
+    <h2>27 900 com</h2>
+    <button onclick="add(items[0])" style="cursor: pointer">Купить</button>
+</div>
+<div>
+    <img src="../../../PycharmProjects/untitled54/Без названия (7).jpg" height="200" width="200"/>
+    <h2>Iphone 6</h2>
+    <h2>24 300 com</h2>
+    <button onclick="add(items[1]); render()" style="cursor: pointer">Купить</button>
+</div>
+<div>
+    <img src="../../../PycharmProjects/untitled54/30043457b.jpg" height="200" width="200"/>
+    <h2>Xiaomi A9</h2>
+    <h2>26 200 com</h2>
+    <button onclick="add(items[2])" style="cursor: pointer">Купить</button>
+</div>
+<div>
+    <a href="scratch_1.html">Корзина</a>
+</div>
+</body>
+<script>
+    var items = [
+        {img: '../../../PycharmProjects/untitled54/30032088b.jpg', name: 'Samsung S7', price: '27 900 com'},
+        {img: '../../../PycharmProjects/untitled54/Без названия (7).jpg', name: 'Iphone 6', price: '24 300 com'},
+        {img: '../../../PycharmProjects/untitled54/30043457b.jpg', name: 'Xiaomi A9', price: '26 200 com'}
+        ];
+    var list = [];
+    if(localStorage.list!==undefined){
+        list=JSON.parse(localStorage.list)
+    }
+    function add(item) {
+            list.push(item);
+            localStorage.list = JSON.stringify(list);
+            console.log(list)
+    }
+    function render() {
+        document.getElementById('render').innerHTML='';
+        for(var i=0;i<list.length;i++){
+            var e = document.createElement('div');
+            e.className='c';
+            e.innerHTML =
+            document.getElementById('render').appendChild(e)
+        }
+    }
+</script>
+</html>
